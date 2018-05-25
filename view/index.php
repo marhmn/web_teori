@@ -1,21 +1,11 @@
-<?php  
+<?php
 include '../controller/controller.php';
 ?>
 <html>
 <head>
 <title>Pendaftaran Pasien</title>
-<link rel="icon" type="image/png" href="logo/rs.png">
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-grid.css">
-<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-<link rel="stylesheet" href="css/bootstrap-reboot.css">
-<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.chained.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>>
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
@@ -24,14 +14,14 @@ include '../controller/controller.php';
 	<br>
 	<br>
 	<br>
-	<div class="container">		
+	<div class="container">
 		<h1 class="page-header"><center>Pendaftaran Pasien</center></h1>
 	</div>
-	
+
 	<br/>
-	
-	
- 
+
+
+
 	<br/>
 	<div class="container">
 		<h3>Formulir pendaftaran pasien baru</h3>
@@ -59,7 +49,7 @@ include '../controller/controller.php';
 		</select>
 		</td>
 		</tr>
-		<tr>		
+		<tr>
 		<tr>
 		<td>Poli</td>
 		<td>
@@ -72,7 +62,7 @@ include '../controller/controller.php';
 							<?php endforeach ?>
 		</select>
 		</td>
-		</tr>		
+		</tr>
 		<td>Dokter</td>
 		<td>
 		<select id="dokter" name="dokter" class="form-control">
@@ -86,14 +76,14 @@ include '../controller/controller.php';
 		</select>
 		</td>
 		</tr>
-		
+
 		<tr>
 		<td colspan="2"><Button class="btn btn-primary btn-block" type="submit" name="simpan">Simpan</button></td>
 		</tr>
 		<tr>
 			<td colspan="2"><a class="btn btn-default btn-block" href="tampil.php">Lihat</a></td>
 		</tr>
-		
+
 		</table>
 		<?php
 		if (isset($_POST["simpan"])){
@@ -108,5 +98,5 @@ include '../controller/controller.php';
 
 	</div>
 </body>
-			
+
 </html>

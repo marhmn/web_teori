@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include '../controller/controller.php';
 $id = $_GET['id'];
 $idpasien=$pasien->ambil_data('id');
@@ -9,17 +9,7 @@ $idpasien=$pasien->ambil_data('id');
 <head>
 <title>Membuat CRUD Dengan PHP Dan MySQL - Menampilkan data dari database</title>
 <meta charset="utf-8">
-<link rel="icon" type="image/png" href="logo/rs.png">
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-grid.css">
-<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-<link rel="stylesheet" href="css/bootstrap-reboot.css">
-<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.chained.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap.js"></script>
 </head>
@@ -29,22 +19,22 @@ $idpasien=$pasien->ambil_data('id');
 	<br>
 	<br>
 	<br>
-	<div class="container">		
+	<div class="container">
 		<h1 class="page-header"><center>Pendaftaran Pasien</center></h1>
 	</div>
-	
+
 	<br/>
-	
-	
- 
+
+
+
 	<br/>
 	<div class="container">
 		<h3>Edit data</h3>
 		<a href="tampil.php" class="btn btn-primary"><i class="glyphicon glyphicon-list-alt"></i>Lihat Semua Data</a>
 		<br/>
-		<br/>	
+		<br/>
 	<form method="post">
-		
+
 			<div class="form-group">
 				<label>Nama Pasien</label>
 				<input type="hidden" name="id" value="<?php echo $id['id'] ?>">
@@ -85,14 +75,14 @@ $idpasien=$pasien->ambil_data('id');
 				<?php endforeach ?>
 			</select>
 			</div>
-			<input class="btn btn-primary" type="submit" value="Simpan" class="glyphicon glyphicon-edit">	
-			<?php 
+			<input class="btn btn-primary" type="submit" value="Simpan" class="glyphicon glyphicon-edit">
+			<?php
 			if (isset($_POST["simpan"])){
 			 $pasien->tambah($_POST['nama_pasien'],$_POST['alamat'],$_POST['no_telp'],$_POST['jenis_kelamin'],$_POST['poli'],$_POST['dokter']);
 			 echo "<script>alert('Data berhasil disimpan');</script>";
 			 echo "<script>location='../view/tampil.php';</script>";
-			}?>			
+			}?>
 	</form>
-</div>        
+</div>
 </body>
 </html>

@@ -9,20 +9,10 @@ include '../controller/controller.php';
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
-	<?php include 'navbar.php'; ?>
-	<br>
-	<br>
-	<br>
-	<br>
 	<div class="container">
 		<h1 class="page-header"><center>Pendaftaran Pasien</center></h1>
 	</div>
 
-	<br/>
-
-
-
-	<br/>
 	<div class="container">
 		<h3>Formulir pendaftaran pasien baru</h3>
     <form method="post">

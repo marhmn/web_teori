@@ -1,6 +1,6 @@
-<?php 
+<?php
 include '../controller/controller.php';
-$data=$pasien->lihat();
+// $data=$pasien->lihat();
 ?>
 <html>
 <head>
@@ -20,12 +20,7 @@ $data=$pasien->lihat();
 <script src="js/bootstrap.js"></script>
 </head>
 <body>
-<?php include 'navbar.php'; ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container">     
+    <div class="container">
         <h1 class="page-header"><center>Pendaftaran Pasien</center></h1>
     </div>
     <br/>
@@ -46,10 +41,10 @@ $data=$pasien->lihat();
             <td class="success"><center>Aksi</center></td>
         </tr>
         </thead>
-        
-        
+
+
             <tbody>
-            <?php foreach ($data as $key => $value): ?>
+            <!-- <?php foreach ($data as $key => $value): ?> -->
             <tr>
             <td><center><?php echo $key+1 ?></center></td>
             <td><center><?php echo $value["nama_pasien"];?></center></td>
@@ -59,17 +54,16 @@ $data=$pasien->lihat();
             <td><center><?php echo $value["nama_poli"];?></center></td>
             <td><center><?php echo $value["nama_dokter"];?></center></td>
             <td>
-                <a class="btn btn-danger btn-block" href="hapus.php?id=<?php echo $value['id']; ?>"><i class="glyphicon glyphicon-trash"></i>Delete</a>
-                <a class="btn btn-primary btn-block" href="edit.php?id=<?php echo $value['id']; ?>"><i class="glyphicon glyphicon-edit"></i> Update</a>
+                <a class="btn btn-danger btn-block" href="hapus.php?id=<?php echo $value['id']; ?>"><i class="glyphicon glyphicon-trash"></i>Hapus</a>
+                <a class="btn btn-primary btn-block" href="edit.php?id=<?php echo $value['id']; ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
             </td>
         </tr>
         <?php endforeach ?>
     </tbody>
-        
+
     </table>
 </form>
 <br><br>
 </div>
 </body>
 </html>
-

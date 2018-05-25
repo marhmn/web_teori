@@ -1,0 +1,153 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 18, 2018 at 10:32 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `rumah_sakit`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dokter`
+--
+
+CREATE TABLE `dokter` (
+  `id_dokter` varchar(4) NOT NULL,
+  `nama_dokter` varchar(30) NOT NULL,
+  `id_poli` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dokter`
+--
+
+INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `id_poli`) VALUES
+('1', 'dr. Stephen Strange', '1'),
+('2', 'dr. Erik Iman', '2'),
+('3', 'dr. Felix Tambunan', '3'),
+('4', 'dr. Jules Winnfield', '2'),
+('5', 'dr. Rowan Atkinson', '1'),
+('6', 'dr. Imantoko', '3'),
+('7', 'dr. Herbertus Widodo', '4'),
+('8', 'dr. Oey Hong Liong', '4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pasien`
+--
+
+CREATE TABLE `pasien` (
+  `id` int(4) NOT NULL,
+  `nama_pasien` varchar(30) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `no_telp` varchar(15) NOT NULL,
+  `jenis_kelamin` enum('L','P') NOT NULL,
+  `id_poli` varchar(2) NOT NULL,
+  `id_dokter` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`id`, `nama_pasien`, `alamat`, `no_telp`, `jenis_kelamin`, `id_poli`, `id_dokter`) VALUES
+(3, 'Anggara Pratama', 'Jl. Garok 8', '085689901234', 'L', '3', '3'),
+(4, 'Udin Gambut', 'Jl. Braderhud 69', '081114880069', 'L', '4', '7'),
+(5, 'Goro', 'Jl.Kemang', '0812433345', 'L', '2', '2'),
+(6, 'Natasha', 'Jl. Panjaitan', '08576678090', 'P', '4', '7');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `poli`
+--
+
+CREATE TABLE `poli` (
+  `id_poli` varchar(2) NOT NULL,
+  `nama_poli` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `poli`
+--
+
+INSERT INTO `poli` (`id_poli`, `nama_poli`) VALUES
+('1', 'Poli Gigi'),
+('2', 'Poli Hewan'),
+('3', 'Poli Punggung'),
+('4', 'Poli Kulit dan Kelamin');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `dokter`
+--
+ALTER TABLE `dokter`
+  ADD PRIMARY KEY (`id_dokter`),
+  ADD KEY `id_poli` (`id_poli`);
+
+--
+-- Indexes for table `pasien`
+--
+ALTER TABLE `pasien`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_poli` (`id_poli`),
+  ADD KEY `id_dokter` (`id_dokter`);
+
+--
+-- Indexes for table `poli`
+--
+ALTER TABLE `poli`
+  ADD PRIMARY KEY (`id_poli`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `pasien`
+--
+ALTER TABLE `pasien`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `dokter`
+--
+ALTER TABLE `dokter`
+  ADD CONSTRAINT `dokter_ibfk_1` FOREIGN KEY (`id_poli`) REFERENCES `poli` (`id_poli`);
+
+--
+-- Constraints for table `pasien`
+--
+ALTER TABLE `pasien`
+  ADD CONSTRAINT `pasien_ibfk_2` FOREIGN KEY (`id_poli`) REFERENCES `poli` (`id_poli`),
+  ADD CONSTRAINT `pasien_ibfk_3` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
